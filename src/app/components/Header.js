@@ -1,53 +1,32 @@
 "use client";
 
-import { useEffect } from "react";
-import { NeutralFace, NeutralFaceBold } from "./fonts"; // Import the font from the separate file
+import { NexaBold, Nexa, Eger } from "./fonts";
 
 export default function Header() {
-  useEffect(() => {
-    let lastScrollTop = 0;
-    const header = document.getElementById("header");
-
-    const handleScroll = () => {
-      const scrollPos = window.scrollY;
-
-      if (scrollPos > lastScrollTop) {
-        // Scrolling down
-        header.style.opacity = "0";
-      } else {
-        // Scrolling up
-        header.style.opacity = "1";
-      }
-      lastScrollTop = scrollPos;
-    };
-
-    // Add scroll event listener
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup function to remove event listeners
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <header id="header" className={`${NeutralFace.className}`}>
-      <div className="header-container blocco">
-        <a id="logo" href="#top">
-          vantaBlack
-        </a>
-        <div className="header-anchors">
-          <a className="link" href="#projects">
-            PROJECTS
-          </a>
-          <a className="link" href="#about">
-            ABOUT
-          </a>
-          <a className="link" href="#footer">
-            CONTACT
-          </a>
+    <div className="header-container">
+      <span className={`menu-btn ${Nexa.className}`}>MENU</span>
+      <header id="header" className={`${Nexa.className}`}>
+        <div className="header-container blocco">
+          <span id="logo" className={`${Eger.className}`}>
+            VANTABLACK
+          </span>
+          <div className="header-anchors">
+            <a className="link" href="#projects">
+              MY WORKS
+            </a>
+            <a className="link" href="#about">
+              ABOUT
+            </a>
+            <a className="link" href="#footer">
+              CONTACTS
+            </a>
+          </div>
         </div>
-      </div>
-    </header>
+        <a className="link-me" href="https://vanta-black-website.vercel.app/">
+          DEVELOPED BY @vantablack
+        </a>
+      </header>
+    </div>
   );
 }

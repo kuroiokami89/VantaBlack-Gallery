@@ -5,11 +5,14 @@ import Head from "next/head";
 export default function HeadComponent() {
   return (
     <Head>
-      <title>Vantablack - Web Developer</title>
+      <title>Vantablack - Gallery</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      {/* If you really need to include an external stylesheet */}
+
+      {/* Stylesheets */}
       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+      <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="mediaquery.css" />
     </Head>
   );
 }

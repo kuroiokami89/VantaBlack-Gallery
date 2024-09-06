@@ -1,16 +1,13 @@
 "use client";
 
-import Intro from "./components/Intro";
-import Projects from "./components/Projects";
-import About from "./components/About";
-import About2 from "./components/About2";
+import Gallery from "./components/Gallery";
+import Header from "./components/Header";
 
 export default function Home() {
   return (
-    <>
-      <Intro />
-      <Projects />
-      <About2 />
-    </>
+    <div id="container">
+      <Gallery />
+      <Header />
+    </div>
   );
 }

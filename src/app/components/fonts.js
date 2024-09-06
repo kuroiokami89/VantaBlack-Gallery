@@ -1,13 +1,15 @@
-// src/app/components/fonts.js
 import localFont from "next/font/local";
 
-// Load the font outside of any client components
-const NeutralFace = localFont({
-  src: "../fonts/NeutralFace.ttf",
+const Nexa = localFont({
+  src: "../fonts/Nexa-ExtraLight.ttf",
 });
 
-const NeutralFaceBold = localFont({
-  src: "../fonts/NeutralFaceBold.ttf",
+const NexaBold = localFont({
+  src: "../fonts/Nexa-Heavy.ttf",
 });
 
-export { NeutralFace, NeutralFaceBold };
+const Eger = localFont({
+  src: "../fonts/FilsonProRegular.otf",
+});
+
+export { Nexa, NexaBold, Eger };
