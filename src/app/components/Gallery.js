@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import { PhotoList } from "./PhotoList";
 import Masonry from "masonry-layout";
@@ -7,29 +5,32 @@ import { Nexa, NexaBold, Eger } from "./fonts";
 
 export default function Gallery() {
   useEffect(() => {
-    const masonry = new Masonry("#gallery", {
-      itemSelector: ".grid-item",
-      columnWidth: ".grid-sizer",
-      percentPosition: true,
-    });
+    // Check if we're on the client side
+    if (typeof window !== "undefined") {
+      const masonry = new Masonry("#gallery", {
+        itemSelector: ".grid-item",
+        columnWidth: ".grid-sizer",
+        percentPosition: true,
+      });
 
-    // Layout Masonry after all images have loaded
-    const imgLoadPromises = Array.from(
-      document.querySelectorAll("#gallery img")
-    ).map(
-      (img) =>
-        new Promise((resolve) => {
-          img.onload = resolve;
-          img.onerror = resolve;
-        })
-    );
+      // Layout Masonry after all images have loaded
+      const imgLoadPromises = Array.from(
+        document.querySelectorAll("#gallery img")
+      ).map(
+        (img) =>
+          new Promise((resolve) => {
+            img.onload = resolve;
+            img.onerror = resolve;
+          })
+      );
 
-    Promise.all(imgLoadPromises).then(() => {
-      masonry.layout();
-    });
+      Promise.all(imgLoadPromises).then(() => {
+        masonry.layout();
+      });
 
-    // Cleanup function
-    return () => masonry.destroy();
+      // Cleanup function
+      return () => masonry.destroy();
+    }
   }, []);
 
   const [selectedImage, setSelectedImage] = useState(null); // State to track the clicked image
