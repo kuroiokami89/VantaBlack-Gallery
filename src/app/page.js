@@ -1,6 +1,6 @@
 "use client";
 
-import Gallery from "./components/Gallery";
+const Gallery = dynamic(() => import("./Gallery"), { ssr: false });
 import Header from "./components/Header";
 
 export default function Home() {
