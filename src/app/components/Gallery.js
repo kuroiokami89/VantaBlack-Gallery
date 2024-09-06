@@ -5,15 +5,14 @@ import { Nexa, NexaBold, Eger } from "./fonts";
 
 export default function Gallery() {
   useEffect(() => {
-    // Check if we're on the client side
     if (typeof window !== "undefined") {
+      // Only execute this code on the client side
       const masonry = new Masonry("#gallery", {
         itemSelector: ".grid-item",
         columnWidth: ".grid-sizer",
         percentPosition: true,
       });
 
-      // Layout Masonry after all images have loaded
       const imgLoadPromises = Array.from(
         document.querySelectorAll("#gallery img")
       ).map(
@@ -28,7 +27,6 @@ export default function Gallery() {
         masonry.layout();
       });
 
-      // Cleanup function
       return () => masonry.destroy();
     }
   }, []);
